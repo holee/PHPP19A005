@@ -29,7 +29,7 @@
                 $sql="SELECT * FROM users;";//select statement
                 $stmt=$connection->query($sql);//call exec() of pdo object
                 while($r=$stmt->fetch(PDO::FETCH_NUM)){
-                    if($r[1]=="username2") break;
+                   
             ?>
             <tr>
                 <td><?= $r[0]  ?></td>
@@ -54,3 +54,10 @@
     </table>
 </body>
 </html>
+
+
+<?php
+
+echo "<pre>";
+print_r($_GET);
+echo "</pre>";
