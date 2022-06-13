@@ -22,42 +22,26 @@
                 <th>User Name</th>
                 <th>Password</th>
                 <th>Email</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php
                 $sql="SELECT * FROM users;";//select statement
                 $stmt=$connection->query($sql);//call exec() of pdo object
-                while($r=$stmt->fetch(PDO::FETCH_NUM)){
-                   
+                while($r=$stmt->fetch(PDO::FETCH_NUM)){ 
             ?>
             <tr>
                 <td><?= $r[0]  ?></td>
                 <td><?= $r[1]  ?></td>
                 <td><?= $r[2]  ?></td>
                 <td><?= $r[3]  ?></td>
+                <td>
+                      <a href="edit.php?userid=<?= $r[0]  ?>">Edit</a>
+                </td>
             </tr>
-            <?php  }?>
-            <?php
-                $sql1="SELECT * FROM users;";//select statement
-                $stmt1=$connection->query($sql1);//call exec() of pdo object
-                $rows=$stmt1->fetchAll(PDO::FETCH_NUM);
-            foreach($rows as $row):
-            ?>
-                <tr>
-                    <?php foreach($row as $r):?>
-                        <td><?= $r  ?></td>
-                    <?php endforeach;  ?>
-                </tr>
-            <?php endforeach;  ?>
+            <?php } ?>
         </tbody>
     </table>
 </body>
 </html>
-
-
-<?php
-
-echo "<pre>";
-print_r($_GET);
-echo "</pre>";
